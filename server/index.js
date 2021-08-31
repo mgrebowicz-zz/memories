@@ -3,7 +3,11 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+import postRoutes from './routes/posts.js';
+
 const app = express();
+
+app.use('/posts', postRoutes);
 
 //bodyParser depricated
 // app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -24,3 +28,4 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
     .catch((error) => console.log(error.message))
 
 
+ 
