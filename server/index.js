@@ -7,15 +7,14 @@ import postRoutes from './routes/posts.js';
 
 const app = express();
 
-app.use('/posts', postRoutes);
 
 //bodyParser depricated
 // app.use(bodyParser.json({ limit: "30mb", extended: true }));
 // app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: '30mb', extended: true }));
 app.use(express.json({ limit: '30mb' }))
-
 app.use(cors());
+app.use('/posts', postRoutes);
 
 // https://www.mongodb.com/cloud/atlas
 // temporary connection password for testing
